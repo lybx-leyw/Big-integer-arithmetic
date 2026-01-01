@@ -1,0 +1,3 @@
+D:/github/Big integer arithmetic/build/CMakeFiles/my_program.dir
+D:/github/Big integer arithmetic/build/CMakeFiles/edit_cache.dir
+D:/github/Big integer arithmetic/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,26 @@
+[
+{
+  "directory": "D:/github/Big integer arithmetic/build",
+  "command": "D:\\soft\\msys2\\mingw64\\bin\\gcc.exe -I\"D:/github/Big integer arithmetic/include\"  -Wall -Wextra -g -O0 -DDEBUG -g -std=gnu11 -o CMakeFiles\\my_program.dir\\src\\list.c.obj -c \"D:\\github\\Big integer arithmetic\\src\\list.c\"",
+  "file": "D:\\github\\Big integer arithmetic\\src\\list.c",
+  "output": "CMakeFiles\\my_program.dir\\src\\list.c.obj"
+},
+{
+  "directory": "D:/github/Big integer arithmetic/build",
+  "command": "D:\\soft\\msys2\\mingw64\\bin\\gcc.exe -I\"D:/github/Big integer arithmetic/include\"  -Wall -Wextra -g -O0 -DDEBUG -g -std=gnu11 -o CMakeFiles\\my_program.dir\\src\\main.c.obj -c \"D:\\github\\Big integer arithmetic\\src\\main.c\"",
+  "file": "D:\\github\\Big integer arithmetic\\src\\main.c",
+  "output": "CMakeFiles\\my_program.dir\\src\\main.c.obj"
+},
+{
+  "directory": "D:/github/Big integer arithmetic/build",
+  "command": "D:\\soft\\msys2\\mingw64\\bin\\gcc.exe -I\"D:/github/Big integer arithmetic/include\"  -Wall -Wextra -g -O0 -DDEBUG -g -std=gnu11 -o CMakeFiles\\my_program.dir\\src\\ntt.c.obj -c \"D:\\github\\Big integer arithmetic\\src\\ntt.c\"",
+  "file": "D:\\github\\Big integer arithmetic\\src\\ntt.c",
+  "output": "CMakeFiles\\my_program.dir\\src\\ntt.c.obj"
+},
+{
+  "directory": "D:/github/Big integer arithmetic/build",
+  "command": "D:\\soft\\msys2\\mingw64\\bin\\gcc.exe -I\"D:/github/Big integer arithmetic/include\"  -Wall -Wextra -g -O0 -DDEBUG -g -std=gnu11 -o CMakeFiles\\my_program.dir\\src\\num.c.obj -c \"D:\\github\\Big integer arithmetic\\src\\num.c\"",
+  "file": "D:\\github\\Big integer arithmetic\\src\\num.c",
+  "output": "CMakeFiles\\my_program.dir\\src\\num.c.obj"
+}
+]
