@@ -1,146 +1,150 @@
-# 大数运算库 (Big-integer-arithmetic Library)
+# Big-integer-arithmetic Library
 
-## 项目概述
+## Project Overview
 
-这是一个用C语言实现的大数运算库，支持任意长度的整数进行加、减、乘、除四种基本运算。项目采用万进制（每四位十进制数作为一个存储单元）来高效存储和运算大数，并实现了多种优化算法以提高性能。
+This is a big-integer arithmetic library implemented in C language, supporting four basic operations (addition, subtraction, multiplication, division) for integers of arbitrary length. The project uses a 10,000-ary system (storing every four decimal digits as one unit) for efficient storage and computation of large numbers and implements various optimization algorithms to improve performance.
 
-## 技术演进
+## Technical Evolution
 
-### 第一代：基础实现（2025年9月）
-2025年9月20日，在老师的建议下正式开始大数运算项目。  
-- 采用十进制链表存储，完成基础四则运算  
-- 万级大数乘法耗时数小时，性能瓶颈明显  
+### First Generation: Basic Implementation (September 2025)
+On September 20, 2025, officially started the big-integer arithmetic project on the teacher's suggestion.
+-   Used decimal linked lists for storage, completed basic four operations
+-   Multiplication of ten-thousand-digit numbers took several hours, with obvious performance bottlenecks
 
-### 第二代：万进制优化（2025年9月-10月）
-创建“新版”文件夹，将十进制改为万进制，效率提升4倍。  
-- 实现Karatsuba卷积乘法，效率提升数十倍  
-- 六万位大数乘法优化到0.7秒左右  
-- 尝试Burnikel-Ziegler算法（规范化问题待解决）  
-- 初步实现Newton迭代除法（当时不稳定）
+### Second Generation: 10,000-ary Optimization (September - October 2025)
+Created a "new version" folder, switched from decimal to 10,000-ary, efficiency improved by 4 times.
+-   Implemented Karatsuba convolution multiplication, efficiency improved by tens of times
+-   Optimized 60,000-digit number multiplication to about 0.7 seconds
+-   Attempted Burnikel-Ziegler algorithm (normalization issues to be resolved)
+-   Initially implemented Newton iterative division (unstable at the time)
 
-### 第三代：高级算法探索（2025年10月-11月）
-创建“最终版本”文件夹，建立完整报错机制，在一次次debug中优化。  
-- 实现稳定的Newton迭代除法  
-- 开始研究更高深乘法算法
+### Third Generation: Advanced Algorithm Exploration (October - November 2025)
+Created a "final version" folder, established a complete error reporting mechanism, optimized through continuous debugging.
+-   Implemented stable Newton iterative division
+-   Began researching more advanced multiplication algorithms
 
-在文档“最终版本PLUS版本”中：  
-- 实现DFT乘法，发现单模数限制（仅支持40位以内）  
-- 研读中国剩余定理，实现多模数DFT雏形  
-- 进一步优化至NTT乘法雏形
+In the document "final version PLUS version":
+-   Implemented DFT multiplication, discovered single-modulus limitation (only supports up to 40 bits)
+-   Studied the Chinese Remainder Theorem, implemented a prototype of multi-modulus DFT
+-   Further optimized to an NTT multiplication prototype
 
-### 第四代：工程化整理与开源（2026年1月）
-PLUS版本仅实现多模数DFT雏形，认识到优化空间巨大，进取无止境，暂时转向其他领域学习。  
-2026年1月1日，在掌握更高级的编译本领后，在VSCode中重新整理项目并开源。
+### Fourth Generation: Engineering Organization and Open Source (January 2026)
+The PLUS version only implemented a multi-modulus DFT prototype. Recognizing the huge optimization space and that progress is endless, temporarily shifted to learning other fields.
+On January 1, 2026, after mastering more advanced compilation skills, reorganized the project in VSCode and made it open source.
 
-（演进过程的文件结构可参见README附录）
+(File structures from the evolution process can be seen in the README appendix)
 
-## 功能特性
+## Features
 
-### 1. 基本运算
-- **加法**：支持任意长度整数加法
-- **减法**：支持任意长度整数减法，自动处理正负号
-- **乘法**：实现三种乘法算法：
-  - 普通乘法（基础算法）
-  - Karatsuba算法（递归分治优化）
-  - NTT（数论变换）算法（高性能乘法，持续优化中）
-- **除法**：实现两种除法算法：
-  - 普通长除法
-  - 牛顿迭代法（快速求倒数）
+### 1. Basic Operations
+-   **Addition**: Supports addition of integers of arbitrary length
+-   **Subtraction**: Supports subtraction of integers of arbitrary length, automatically handles signs
+-   **Multiplication**: Implements three multiplication algorithms:
+    -   Ordinary multiplication (basic algorithm)
+    -   Karatsuba algorithm (recursive divide-and-conquer optimization)
+    -   NTT (Number Theoretic Transform) algorithm (high-performance multiplication, ongoing optimization)
+-   **Division**: Implements two division algorithms:
+    -   Ordinary long division
+    -   Newton's iterative method (fast reciprocal calculation)
 
-### 2. 技术特点
-- **高效存储结构**：万进制块状链表存储，每块4位十进制数
-- **智能内存管理**：动态内存分配与释放，兼容碎片化内存环境
-- **完整错误处理**：健全的报错机制和边界检查
-- **跨平台支持**：纯C语言实现，控制台支持UTF-8编码
-- **文件I/O支持**：支持从文件读取大数和输出结果
+### 2. Technical Characteristics
+-   **Efficient Storage Structure**: 10,000-ary block linked list storage, 4 decimal digits per block
+-   **Intelligent Memory Management**: Dynamic memory allocation and release, compatible with fragmented memory environments
+-   **Complete Error Handling**: Robust error reporting mechanism and boundary checking
+-   **Cross-platform Support**: Pure C implementation, console supports UTF-8 encoding
+-   **File I/O Support**: Supports reading large numbers from files and outputting results
 
-## 项目结构
+## Project Structure
 
 ```
 Big_integer_arithmetic/
-├── CMakeLists.txt              # CMake构建配置
-├── build/                      # 编译输出目录
-├── include/                    # 头文件目录
-│   └── main.h                  # 主头文件（函数声明和数据结构定义）
-├── src/                        # 源代码目录
-│   ├── main.c                  # 主程序文件（运算逻辑和用户接口）
-│   ├── list.c                  # 链表操作实现
-│   ├── num.c                   # 大数基本操作实现
-│   └── ntt.c                   # NTT（数论变换）算法辅助
-├── test/                       # 测试数据目录
+├── CMakeLists.txt              # CMake build configuration
+├── build/                      # Compilation output directory
+├── include/                    # Header file directory
+│   └── main.h                  # Main header file (function declarations and data structure definitions)
+├── src/                        # Source code directory
+│   ├── main.c                  # Main program file (operation logic and user interface)
+│   ├── list.c                  # Linked list operation implementation
+│   ├── num.c                   # Large number basic operation implementation
+│   └── ntt.c                   # NTT (Number Theoretic Transform) algorithm auxiliary
+├── test/                       # Test data directory
 │   └── Num_1shiwan.txt
 │   └── ...
-└── output/                     # 程序输出目录
-    └── answer.txt              # 运算结果输出文件
+└── output/                     # Program output directory
+    └── answer.txt              # Operation result output file
     └── ...
 ```
 
-## 使用方法
+## Usage
 
-### 1. 输入大数
-程序支持两种输入方式：
+### 1. Input Large Numbers
+The program supports two input methods:
 
-**方式一：文件输入（默认）**
+**Method 1: File Input (Default)**
 ```c
 FILE *fp = fopen("test\\Num_1shiwan.txt","r");
 Num num_1 = fgetNum(fp);
 ```
 
-**方式二：控制台输入**
+**Method 2: Console Input**
 ```c
-printf("请输入两个大数：\n");
+printf("Please enter two large numbers:\n");
 Num num_1 = getNum();
 Num num_2 = getNum();
 ```
 
-### 2. 选择运算
-程序运行后会提示选择运算类型：
+### 2. Select Operation
+After the program runs, it will prompt to select the operation type:
 ```
-请输入您想要进行的运算：(+-*/)
+Please enter the operation you want to perform: (+-*/)
 ```
-输入对应的运算符即可进行相应运算。
+Enter the corresponding operator to perform the operation.
 
-### 3. 查看结果
-运算结果会：
-- 在控制台显示
-- 保存到 `output/answer.txt` 文件中
+### 3. View Results
+Operation results will:
+-   Be displayed on the console
+-   Be saved to the `output/answer.txt` file
 
-## 性能特点
+## Performance Characteristics
 
-### 整数表示范围
-- **int**：最大10位数字（2147483647）
-- **long long**：最大19位数字（9223372036854775807）
-- **本库**：理论上无限制，受内存大小约束
+### Integer Representation Range
+-   **int**: Maximum 10 digits (2147483647)
+-   **long long**: Maximum 19 digits (9223372036854775807)
+-   **This Library**: Theoretically unlimited, constrained by memory size
 
 ---
 
-欢迎大家提交问题和改进建议。  
-本项目仅供学习交流使用。
+Welcome everyone to submit issues and improvement suggestions.
+
+This project is for learning and exchange purposes only.
 
 ---
-**作者**：浙江大学学生-绿意不息  
-**版本**：1.0  
-**核心代码完成时间**：2025年11月4日  
-**开源发布时间**：2026年1月1日  
-**文档更新时间**：2026年1月2日
+**Author**: Zhejiang University Student - Lüyibuxi
 
+**Version**: 1.0
 
-## 附录：项目演进截图
+**Core Code Completion Date**: November 4, 2025
 
-### 第一代：基础实现（2025年9月）
-![初版项目结构](./docs/20260102132642.png)  
-*项目初期的文件夹结构，从最简单的十进制链表开始*
+**Open Source Release Date**: January 1, 2026
 
-### 第二代：万进制优化（2025年9月-10月）
-![新版文件夹结构](./docs/20260102132740.png)  
-*“新版”文件夹结构，引入万进制和Karatsuba算法*
+**Document Update Date**: January 2, 2026
 
-### 第三代：高级算法探索（2025年10月-11月）
-![最终版本文件夹](./docs/20260102134057.png)  
-*“最终版本”文件夹，包含完整的错误处理模块*
+## Appendix: Project Evolution Screenshots
 
-### 第四代：工程化探索（2025年11月）
-![最终版本PLUS版本文件夹](./docs/20260102134445.png)  
-*“最终版本PLUS版本”文件夹，探索DFT/NTT算法*
+### First Generation: Basic Implementation (September 2025)
+![Initial Project Structure](./docs/20260102132642.png)
+*Folder structure in the initial stage of the project, starting from the simplest decimal linked list*
 
-*注：以上为开发过程中的历史版本截图。当前项目结构请参见GitHub仓库主目录。*
+### Second Generation: 10,000-ary Optimization (September - October 2025)
+![New Version Folder Structure](./docs/20260102132740.png)
+*"New version" folder structure, introducing 10,000-ary and Karatsuba algorithm*
+
+### Third Generation: Advanced Algorithm Exploration (October - November 2025)
+![Final Version Folder](./docs/20260102134057.png)
+*"Final version" folder, containing a complete error handling module*
+
+### Fourth Generation: Engineering Exploration (November 2025)
+![Final Version PLUS Folder](./docs/20260102134445.png)
+*"Final version PLUS version" folder, exploring DFT/NTT algorithms*
+
+*Note: The above are screenshots of historical versions during development. Please refer to the main directory of the GitHub repository for the current project structure.*
