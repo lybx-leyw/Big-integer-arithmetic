@@ -9,7 +9,7 @@ This is a big-integer arithmetic library implemented in C language, supporting f
 ### First Generation: Basic Implementation (September 2025)
 On September 20, 2025, officially started the big-integer arithmetic project on the teacher's suggestion.
 -   Used decimal linked lists for storage, completed basic four operations
--   Multiplication of ten-thousand-digit numbers took several hours, with obvious performance bottlenecks
+-   Multiplication of ten-thousand-digit numbers took several minutes, with obvious performance bottlenecks
 
 ### Second Generation: 10,000-ary Optimization (September - October 2025)
 Created a "new version" folder, switched from decimal to 10,000-ary, efficiency improved by 4 times.
